@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import PocketBase from "pocketbase";
 
 function App() {
+  /* eslint-disable @typescript-eslint/no-explicit-any */
   const [guests, setGuests] = useState<any[]>([]);
 
   useEffect(() => {
@@ -29,7 +30,8 @@ function App() {
           <div className="bg-white flex flex-col  gap-4 rounded-lg shadow-md py-4 px-6">
             <h2 className="text-sm text-gray-600 ">{g.name}</h2>
             <div className="flex flex-row gap-4">
-              {g.photos?.map((ph) => (
+              {/* eslint-disable @typescript-eslint/no-explicit-any */}
+              {g.photos?.map((ph: any) => (
                 <a
                   href={`https://api.studiospulse.com/api/files/photos/${g.id}/${ph}`}
                   target="_blank"
